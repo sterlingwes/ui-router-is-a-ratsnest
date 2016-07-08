@@ -1,0 +1,22 @@
+<div>
+  
+  <h3>Ventures</h3>
+
+  <ul>
+    <li ng-repeat="v in ventures track by v.id">
+      <label ng-click="toggleVenture($event, v.id)">
+        <input type="checkbox" ng-model="selections[v.id]" /> {{ v.name }}
+      </label>
+    </li>
+  </ul>
+
+  <h4>Selections</h4>
+
+  <ul>
+    <li ng-repeat="(id, checked) in selections" ng-hide="!checked">
+      {{ getVentureName(id) }}
+    </li>
+  </ul>
+
+  <a ui-sref='.modal'>Open Modal</a>
+</div>
